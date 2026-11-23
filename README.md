@@ -54,4 +54,4 @@ The notebook can also be run on Google Colab (a GPU is recommended).
 
 ## Author
 
-**<Your name>**
+**Francesc SERRA CRESPÍ**
