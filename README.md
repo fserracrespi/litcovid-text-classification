@@ -1,75 +1,57 @@
-# Biomedical Text Classification with PyTorch (LitCovid)
+# Deep Learning for NLP – Assignment 1
 
-Lab Exercise 1 for **Deep Learning for NLP**: **multi-label** classification of COVID-19 scientific articles into 7 research topics, using two neural networks implemented from scratch in PyTorch.
+This repository contains the code for **Assignment 1** of the course **<DL for NLP>** (<University Paris-Saclay/ M2 AI>, <2026-2027>).
 
-## Task
+**Topic:** Biomedical Text Classification with PyTorch
 
-Assign each article (title + abstract + keywords) one or more of the following topics:
+## Description
+
+The goal of this assignment is to automatically assign COVID-19 scientific articles to one or more research topics (**multi-label classification**) using neural networks implemented from scratch in PyTorch.
+
+The seven topics are:
 
 `Treatment` · `Diagnosis` · `Prevention` · `Mechanism` · `Transmission` · `Epidemic Forecasting` · `Case Report`
 
-**Dataset:** [LitCovid – BioCreative VII](https://huggingface.co/datasets/KushT/LitCovid_BioCreative) (24,960 training articles and 6,239 development articles).
+Two architectures are implemented and compared:
 
-> In the Hugging Face version, the 6,239-article development set is stored under the `test` split. The notebook detects this automatically.
+1. A **Bag-of-Words (BOW)** classifier based on word embeddings.
+2. A **Convolutional Neural Network (CNN)** for text classification.
 
-## Models
+## Dataset
 
-| Model | Description |
-|---|---|
-| **CBOW / Bag-of-Words** | Embeddings → mean pooling (ignoring `<PAD>`) → ReLU hidden layer → 7 logits |
-| **CNN** | Embeddings → convolutions with window sizes 2, 3 and 5 → ReLU → max pooling → 7 logits |
+[LitCovid – BioCreative VII](https://huggingface.co/datasets/KushT/LitCovid_BioCreative), loaded with the Hugging Face `datasets` library. The training and development sets are used.
 
-- Loss: `BCEWithLogitsLoss` (with optional `pos_weight` to handle class imbalance)
-- Optimizer: Adam (`lr = 1e-3`)
-- Metrics: precision, recall, micro-F1 and macro-F1
+## Repository structure
+
+```
+.
+├── assignment1.ipynb   # Notebook with the full assignment
+├── requirements.txt    # Python dependencies
+└── README.md
+```
 
 ## Notebook contents
 
-1. Dataset exploration and label distribution
-2. Preprocessing: cleaning, vocabulary, conversion to ids, padding/truncation
-3. Tensors and DataLoaders
-4. BOW and CNN model implementations
-5. Loss function
-6. Training loop with validation
-7. Evaluation (thresholds 0.5 and 0.3)
-8. Experiments and architecture comparison
-9. Discussion
-10. Extensions: `pos_weight`, per-label thresholds, pretrained embeddings, transformers
+1. Dataset exploration and preprocessing
+2. Vocabulary construction and numerical representation
+3. Implementation of the BOW classifier
+4. Implementation of the CNN classifier
+5. Training and validation procedures
+6. Evaluation (precision, recall, micro-F1, macro-F1)
+7. Comparison of the two architectures
+8. Answers to the discussion questions
 
 ## How to run
 
 ```bash
-git clone https://github.com/<username>/litcovid-text-classification.git
-cd litcovid-text-classification
+git clone https://github.com/<username>/<repo-name>.git
+cd <repo-name>
 pip install -r requirements.txt
-jupyter notebook assignment1_litcovid.ipynb
+jupyter notebook assignment1.ipynb
 ```
 
-The notebook can also be opened in **Google Colab** (a GPU is recommended for the CNN).
-
-Main parameters (first cell of the notebook):
-
-| Parameter | Value | Description |
-|---|---|---|
-| `MAX_LEN` | 500 | Maximum sequence length |
-| `BATCH_SIZE` | 64 | Mini-batch size |
-| `EPOCHS` | 5 | Epochs per experiment |
-| `QUICK_RUN` | `False` | `True` = use a small subset to test the code quickly |
-
-The random seed is fixed (`SEED = 42`) so results are reproducible.
-
-## Requirements
-
-```
-torch
-datasets
-scikit-learn
-numpy
-pandas
-matplotlib
-jupyter
-```
+The notebook can also be run on Google Colab (a GPU is recommended).
 
 ## Author
 
-<Francesc SERRA CRESPÍ> — <University Paris-Saclay / M2 IA>, <2026-2027>
+**<Your name>**
