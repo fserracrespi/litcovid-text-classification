@@ -1,6 +1,6 @@
 # Deep Learning for NLP – Assignment 1
 
-This repository contains the code for **Assignment 1** of the course **<DL for NLP>** (<University Paris-Saclay/ M2 AI>, <2026-2027>).
+This repository contains the code for **Assignment 1** of the course **<DL for NLP>** (University Paris-Saclay/ M2 AI, 2026-2027).
 
 **Topic:** Biomedical Text Classification with PyTorch
 
