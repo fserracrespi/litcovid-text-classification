@@ -44,8 +44,8 @@ Two architectures are implemented and compared:
 ## How to run
 
 ```bash
-git clone https://github.com/<username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/fserracrespi/litcovid-text-classification.git
+cd litcovid-text-classification
 pip install -r requirements.txt
 jupyter notebook assignment1.ipynb
 ```
